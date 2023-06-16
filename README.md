@@ -2,7 +2,7 @@
 
 ## Razonamiento
 
-Ya cerca de cumplir un mes en cotizaciones he notado, a nivel personal, que la mayor carga de ineficiencia en el trabajo se encuentra en la dependencia de un mínimo de tres plataformas simultaneas, a veces mas. El depender de tantas herramientas, tomando datos de una para ser llevados a la otra es espacio propenso para el error y la consecuencia de trabajo extra agregado en debido a lo que toma reparar ese error.
+Ya cerca de cumplir un mes en cotizaciones he notado, a nivel personal, que uno de las razones principales para los retrasos es depender de un mínimo de 3 plataformas simultáneamente, plataformas que no tienen como compartir información entre ellas. El depender de tantas herramientas, tomando datos de una para ser llevados a la otra es espacio propenso para el error y tiene la consecuencia de trabajo extra al reparar ese error.
 
 Tanta posibilidad de mano humana en ciertos procesos, a veces sin una validación completa de la información (formatos, contenido, etc, etc, etc), hace vulnerable la cadena de producción y genera retrasos que pueden ser solventados a través de un sistema informático que unifique los siguientes elementos:
 
@@ -21,8 +21,10 @@ Usando postgreSQL la base de datos estaria centrada en el cliente segun el sigui
 
 Los usuarios estarian identificados por un atributo llamado rol: de diferentes niveles y para diferentes funciones.
 
-rol:Q para un super usuario omnipotente en la app.
 rol:consultor para enviar clientes.
 rol:Cotizador para procesarlos y ver la info completa de los mismos y editar ciertos parametros.
+
+Tambien hacer falta un nivel de autorizacion del usuario, para diferenciar a gerentes de trabajadores rasos.
+
 
 Para agregar a los otros miembros del equipo y las otras funciones debo conocer un poco mejor la empresa y como estamos funcionando.
