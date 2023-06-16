@@ -15,7 +15,7 @@ Tanta posibilidad de mano humana en ciertos procesos, a veces sin una validació
 ## Propuesta de base de datos:
 
 Usando postgreSQL la base de datos estaria centrada en el cliente segun el siguiente diagrama:
-
+![Diagrama de propuesta de base de datos](base%20de%20datos%20propuesta.svg)
 
 ## Usuarios y autorizacion:
 
