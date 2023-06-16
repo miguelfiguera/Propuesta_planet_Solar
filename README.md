@@ -2,7 +2,7 @@
 
 ## Razonamiento
 
-Ya cerca de cumplir un mes en cotizaciones he notado, a nivel personal, que uno de las razones principales para los retrasos es depender de un mínimo de 3 plataformas simultáneamente, plataformas que no tienen como compartir información entre ellas. El depender de tantas herramientas, tomando datos de una para ser llevados a la otra es espacio propenso para el error y tiene la consecuencia de trabajo extra al reparar ese error.
+Ya cerca de cumplir un mes en cotizaciones he notado, a nivel personal, que una de las razones principales para los retrasos es depender de un mínimo de 3 plataformas simultáneamente abiertas, plataformas que no tienen como compartir información entre ellas. El depender de tantas herramientas, tomando datos de una para ser llevados a la otra es espacio propenso para el error y tiene la consecuencia de trabajo extra al reparar ese error.
 
 Tanta posibilidad de mano humana en ciertos procesos, a veces sin una validación completa de la información (formatos, contenido, etc, etc, etc), hace vulnerable la cadena de producción y genera retrasos que pueden ser solventados a través de un sistema informático que unifique los siguientes elementos:
 
@@ -11,6 +11,7 @@ Tanta posibilidad de mano humana en ciertos procesos, a veces sin una validació
 3.**Lista de Precios, Calculadora de consumo**: Al ser ambos hojas de calculo existentes para procesar la información, se puede generar un espacio dentro de la misma plataforma que haga exactamente lo mismo, con un menor rango de error pues solo mostraría los resultados de las opciones escogidas.
 4. **El QUO**: existiendo una base de datos relacional, el quo se vuelve hasta cierto punto innecesario, puesto que al finalizar al cliente, el cotizador puede seleccionar un estatus de los posibles y guardarlo en ese status (propuesta enviada, crédito declinado, crédito aprobado, etc...).
 5. **Usuarios**:Este proceso también facilita el seguimiento de los usuarios (trabajadores) que han tenido contacto especifico con la información de un cliente y se puede seguir el proceso debidamente. Ligando el cliente a todos los usuarios que hayan participado en el proceso. Es decir Usuario::Consultor sube la información y es recibida por Usuario::Cotizador1 quien ese día solo llega hasta el crédito aprobado, al día siguiente Usuario::Cotizador2 recibe la información y lleva la propuesta hasta el cierre.
+6. **Productos**: Productos en existencia y actuales de planet solar, para realizar ventas, cotizaciones e instalaciones.
 
 ## Propuesta de base de datos:
 
@@ -22,7 +23,7 @@ Usando postgreSQL la base de datos estaría centrada en el cliente según el sig
 Los usuarios estarían identificados por un atributo llamado rol: de diferentes niveles y para diferentes funciones.
 
 rol:consultor para enviar clientes.
-rol:Cotizador para procesarlos, editar ciertos parámetros y ver la data completa de los clientes.
+rol:cotizador para procesarlos, editar ciertos parámetros y ver la data completa de los clientes.
 
 También hace falta un nivel de autorización del usuario, para diferenciar a gerentes de trabajadores rasos.
 
@@ -31,7 +32,7 @@ Para agregar a los otros miembros del equipo y las otras funciones debo conocer 
 
 ## Productos:
 
-Aunque no esta contemplado aun en la idea de la base de datos, existe también la posibilidad de agregar productos/servicios con costos de forma precisa, evitando largas listas. Cuando un producto se agota o no se va usar se coloca en su status ' Descontinuado' y no aparece mas hasta que se modifique o se retome.
+Aunque no esta contemplado aun en el esquema de la base de datos, existe también la posibilidad de agregar productos/servicios con costos de forma precisa, evitando largas listas. Cuando un producto se agota o no se va usar se coloca en su status ' Descontinuado' y no aparece mas hasta que se modifique o se retome.
 
 ## Ventajas
 
