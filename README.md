@@ -14,17 +14,33 @@ Tanta posibilidad de mano humana en ciertos procesos, a veces sin una validació
 
 ## Propuesta de base de datos:
 
-Usando postgreSQL la base de datos estaria centrada en el cliente segun el siguiente diagrama:
+Usando postgreSQL la base de datos estaría centrada en el cliente según el siguiente diagrama:
 ![Diagrama de propuesta de base de datos](base%20de%20datos%20propuesta.svg)
 
-## Usuarios y autorizacion:
+## Usuarios y autorización:
 
-Los usuarios estarian identificados por un atributo llamado rol: de diferentes niveles y para diferentes funciones.
+Los usuarios estarían identificados por un atributo llamado rol: de diferentes niveles y para diferentes funciones.
 
 rol:consultor para enviar clientes.
-rol:Cotizador para procesarlos y ver la info completa de los mismos y editar ciertos parametros.
+rol:Cotizador para procesarlos, editar ciertos parámetros y ver la data completa de los clientes.
 
-Tambien hacer falta un nivel de autorizacion del usuario, para diferenciar a gerentes de trabajadores rasos.
+También hace falta un nivel de autorización del usuario, para diferenciar a gerentes de trabajadores rasos.
 
 
 Para agregar a los otros miembros del equipo y las otras funciones debo conocer un poco mejor la empresa y como estamos funcionando.
+
+## Productos:
+
+Aunque no esta contemplado aun en la idea de la base de datos, existe también la posibilidad de agregar productos/servicios con costos de forma precisa, evitando largas listas. Cuando un producto se agota o no se va usar se coloca en su status ' Descontinuado' y no aparece mas hasta que se modifique o se retome.
+
+## Ventajas
+
+Una base de datos relacional permite:
+
+1) Hacer respaldos livianos de toda la data contenida, en archivos seguros.
+2) Estudiar la data existente para reforzar las buenas practicas y corregir los vicios.
+3) Revisar de forma organizada los casos y corregir errores de ser necesario.
+4) Gestionar revisiones generales de toda la información.
+5) Emitir data especifica para su estudio, ejemplo 'Todos los clientes que hayan sido declinados en VIEQUES y no presenten co-deudor'.
+6) Agiliza el proceso al centralizar el acceso a las plataformas que se usan en este momento y eliminando los respaldos en googlesheets (puesto que ya existen dentro de la base de datos).
+7) Establece una capa de seguridad extra al proteger la data con usuarios y contrasenhas... y a su vez limitando el accesso y las capacidades que tiene el usuario sobre la data.
