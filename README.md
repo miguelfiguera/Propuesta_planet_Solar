@@ -66,3 +66,10 @@ El unico impedimento es el acceso a la API, puesto que solo esta disponible para
 
 Si no es el caso de Planet Solar, no pasa nada, ya unificar jotform y el quo es un avance lo suficientemente grande al reducir la doble data y el ejercicio de insertarla en un googlesheets al final del turno (el cual es propenso a errores).
 
+
+
+## Complicaciones:
+
+La existencia de software propio requerira un equipo (al menos dos personas) dedicadas a solventar cualquier inconveniente que pueda surgir del uso inadecuado de la herramienta... Y si se desarrolla entre dos, mejor aun.
+
+Por otro lado, sera requerido hacer respaldos de la base de datos cada cierto tiempo de manera prudencial, asi se evitan complicaciones o perdida de datos masivas, este respaldo debe estar en manos de personas que posean contratos de confidencialidad total con la empresa.
