@@ -16,7 +16,26 @@ Tanta posibilidad de mano humana en ciertos procesos, a veces sin una validació
 ## Propuesta de base de datos:
 
 Usando postgreSQL la base de datos estaría centrada en el cliente según el siguiente diagrama:
+
+(Nota, consultar si el codeudor pertence al cliente o a la propiedad antes de agregarlo)
+
 ![Diagrama de propuesta de base de datos](base%20de%20datos%20propuesta.svg)
+
+
+
+### Breve explicacion:
+
+1. Cliente es elemento central, todos los registros que se generan giran en torno a el, exceptuando productos, lista de precios y equipos.
+2. el email del cliente es el unico elemento irrepetible dentro del modelo, puesto que si solo se presentan los ultimos 4 numeros del ssn, existe la posibilidad de repeticion, igual que con nombres. Por esta razon solo debe puede ser editable por una persona con alta autorizacion previa revision de la base de datos.
+3. En el modelo propiedad, los elementos unicos son direccion, catastro y coordenadas.
+4. Todos los documentos llevan triple ID, el propio, el del cliente y el del cotizador.
+5. El modelo equipos hace referencia a la relacion 'lider <---> consultor' para facilitar al cotizador saber a quien pertenece cada consultor. Y tambien, si se llegan a crear nuevos usuarios/trabajadores recursos humanos puede rastrear y asignarlos a un area determinada (para que sean mas faciles de localizar en la base de datos).
+6. El cliente lleva tambien el ID del consultor que es 'propietario' de la venta que se le haga a ese cliente.
+7. Solo el consultor puede crear propiedades.
+8. Solo el cotizador puede crear documentos.
+9. Cualquier usuario con la maxima autorizacion puede hacer lo que desee exceptuando tocar los registros de edicion y los snapshots...
+10. Snapshots y registros de edicion solo pueden ser eliminados por un usuario llamado Q que es omnipotente, y aun asi no puede alterar el orden de los ID generados en la base de datos, razon por la cual siempre se vera si algo fue indebidamente alterado.
+
 
 ## Usuarios y autorización:
 
@@ -38,13 +57,13 @@ Aunque no esta contemplado aun en el esquema de la base de datos, existe tambié
 
 Una base de datos relacional permite:
 
-1) Hacer respaldos livianos de toda la data contenida, en archivos seguros.
-2) Estudiar la data existente para reforzar las buenas practicas y corregir los vicios.
-3) Revisar de forma organizada los casos y corregir errores de ser necesario.
-4) Gestionar revisiones generales de toda la información.
-5) Emitir data especifica para su estudio, ejemplo 'Todos los clientes que hayan sido declinados en VIEQUES y no presenten co-deudor'.
-6) Agiliza el proceso al centralizar el acceso a las plataformas que se usan en este momento y eliminando los respaldos en googlesheets (puesto que ya existen dentro de la base de datos).
-7) Establece una capa de seguridad extra al proteger la data con usuarios y contrasenhas... y a su vez limitando el accesso y las capacidades que tiene el usuario sobre la data.
+1. Hacer respaldos livianos de toda la data contenida, en archivos seguros.
+2. Estudiar la data existente para reforzar las buenas practicas y corregir los vicios.
+3. Revisar de forma organizada los casos y corregir errores de ser necesario.
+4. Gestionar revisiones generales de toda la información.
+5. Emitir data especifica para su estudio, ejemplo 'Todos los clientes que hayan sido declinados en VIEQUES y no presenten co-deudor'.
+6. Agiliza el proceso al centralizar el acceso a las plataformas que se usan en este momento y eliminando los respaldos en googlesheets (puesto que ya existen dentro de la base de datos).
+7. Establece una capa de seguridad extra al proteger la data con usuarios y contrasenhas... y a su vez limitando el accesso y las capacidades que tiene el usuario sobre la data.
 
 
 ## GoFormz API
@@ -64,7 +83,7 @@ Actualmente no hay integracion directa con ruby, sin embargo es cuestion de desa
 
 El unico impedimento es el acceso a la API, puesto que solo esta disponible para aquellos usuarios que tengan un plan enterprise...
 
-Si no es el caso de Planet Solar, no pasa nada, ya unificar jotform y el quo es un avance lo suficientemente grande al reducir la doble data y el ejercicio de insertarla en un googlesheets al final del turno (el cual es propenso a errores).
+Si no es el caso de Planet Solar, no pasa nada, ya unificar jotform y el quo es un avance lo suficientemente grande al reducir la doble data y el ejercicio de insertarla en un googlesheets al final del turno (lo cual es un proceso propenso a errores).
 
 
 
@@ -73,3 +92,12 @@ Si no es el caso de Planet Solar, no pasa nada, ya unificar jotform y el quo es 
 La existencia de software propio requerira un equipo (al menos dos personas) dedicadas a solventar cualquier inconveniente que pueda surgir del uso inadecuado de la herramienta... Y si se desarrolla entre dos, mejor aun.
 
 Por otro lado, sera requerido hacer respaldos de la base de datos cada cierto tiempo de manera prudencial, asi se evitan complicaciones o perdida de datos masivas, este respaldo debe estar en manos de personas que posean contratos de confidencialidad total con la empresa.
+
+
+## Costos
+
+Dependiendo del volumen de datos que se generen, pero un servidor alquilado en heroku cuesta alrededor de 25 USD$ mensuales (de acuerdo al volumen de data) + la base de datos postgreSQL que ronda los 5 a los 15$ mensuales para un total aproximado de 40$.
+
+## Interfaz
+
+Para favorecer el traslado de una plataforma a otra, se generaria una interfaz de usuario lo mas similar posible a las herramientas que se usan ahora.
