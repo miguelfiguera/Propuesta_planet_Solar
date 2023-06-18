@@ -101,3 +101,31 @@ Dependiendo del volumen de datos que se generen, pero un servidor alquilado en h
 ## Interfaz
 
 Para favorecer el traslado de una plataforma a otra, se generaria una interfaz de usuario lo mas similar posible a las herramientas que se usan ahora.
+
+## Tiempo de produccion
+
+Se estima un desarrollo de alrededor de dos meses para un producto completo dividido en varias fases:
+
+Primeros 15 a 20 dias.
+
+
+A) Revision del disenho.
+B) Modelos de ---> Cliente, propiedades,notas y Usuario. (Reemplazo de JotForm + QUO)
+C) Interfaz de modelos punto B). 
+
+Proximos 40 Dias:
+
+D) Disenho de modelos de documentos para integracion con jotform.
+E) Integracion con api.
+F) Desarrollo de la interfaz para el usuario.
+G) Pruebas y testeo.
+
+### Metodologia del disenho
+
+Debido a lo delicado de la informacion, este trabajo seria realizado bajo la metodologia de Test Driven Development ---> Que aunque es mas lenta, es mucho mas segura, puesto que va probando cada parte del codigo antes de integrarla.
+
+
+
+## NOTA SOBRE GOFORMZ:
+
+La integracion de goformz tiene como objetivo exclusivamente pre-llenar los campos de los formz y dejarlos en draft. No hay ninguna intencion de que se completen desde la plataforma para que al menos en este punto, se mantenga la dinamica que maneja el consultor con el cliente al estampar la firma.
